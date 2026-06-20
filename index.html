@@ -110,7 +110,8 @@
 
             // 統計情報の表示
             const distanceKm = (routeData.distance / 1000).toFixed(2);
-            const durationMin = Math.round(routeData.duration / 60);
+            // 4km/hで歩く場合の所要時間を計算 (距離km / 4km/h * 60分)
+            const durationMin = Math.round((routeData.distance / 1000) / 4 * 60);
             
             statusText.innerHTML = `✅ <b>${nearest.name}</b> へのルートを表示中 (約 ${distanceKm}km / 徒歩 ${durationMin}分)`;
 
